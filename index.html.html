@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mallory Bailey-Finkley — Boundless</title>
+<meta name="description" content="Market research, strategy & operations. Discovering boundless potential — at the next level." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<style>
+:root{
+  --ink:#1E1B2E;--plum:#5B2A86;--plum-deep:#3D1A5C;--plum-soft:#EFE7F6;
+  --surface:#FAF8FC;--card:#FFFFFF;--line:#E7E1F0;--muted:#6E6683;
+  --teal:#0E8A6E;--amber:#C7891F;--rose:#B23A48;--sky:#3562B8;--gold:#C79A3A;
+  --shadow:0 1px 2px rgba(30,27,46,.04),0 8px 24px rgba(61,26,92,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);font-weight:500}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:5px}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--plum);color:#fff;font-weight:600;font-size:14px;padding:13px 22px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;font-family:inherit}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(91,42,134,.28)}
+.btn.ghost{background:transparent;color:var(--plum);border:1.5px solid var(--plum)}
+.btn.light{background:#fff;color:var(--plum-deep)}
+
+/* top */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(250,248,252,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:14px;height:64px}
+.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--plum),var(--plum-deep));color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:15px;flex:none;box-shadow:var(--shadow)}
+.brand-name{font-family:"Fraunces",serif;font-weight:600;font-size:16px;line-height:1.05}
+.brand-sub{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.topbar nav{margin-left:auto;display:none;gap:4px}
+@media(min-width:920px){.topbar nav{display:flex}}
+.topbar nav a{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 11px;border-radius:999px}
+.topbar nav a:hover{color:var(--plum);background:var(--plum-soft)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:74px 0 60px}
+.hero::after{content:"";position:absolute;right:-140px;top:-120px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(199,154,58,.16),transparent 62%);pointer-events:none}
+.hero::before{content:"";position:absolute;left:-160px;bottom:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(91,42,134,.12),transparent 60%);pointer-events:none}
+.hero h1{font-size:clamp(34px,6vw,68px);line-height:1.0;max-width:15ch;margin-top:18px}
+.hero h1 em{font-style:italic;color:var(--plum)}
+.hero .lede{max-width:52ch;color:var(--muted);font-size:17px;margin:22px 0 30px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--plum-deep);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px}
+
+section{padding:56px 0;position:relative}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.sec-head .note{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.lead{max-width:60ch;color:var(--muted);margin:-14px 0 26px}
+
+/* services */
+.svc{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:680px){.svc{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.svc{grid-template-columns:repeat(3,1fr)}}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease}
+.scard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(61,26,92,.12)}
+.scard .ic{width:40px;height:40px;border-radius:11px;background:var(--plum-soft);color:var(--plum);display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;margin-bottom:14px}
+.scard h3{font-size:18px;font-family:"Fraunces",serif}
+.scard p{color:var(--muted);font-size:13.5px;margin:8px 0 14px}
+.scard .rate{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--plum-deep);font-weight:600;border-top:1px solid var(--line);padding-top:12px}
+
+/* estimator */
+.estimator{background:linear-gradient(160deg,#fff,#fbf9fe);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:860px){.estimator{grid-template-columns:1.1fr .9fr}}
+.est-q{margin-bottom:20px}
+.est-q label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font-size:13px;padding:9px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;cursor:pointer;transition:all .12s ease;font-family:inherit;color:var(--ink)}
+.opt:hover{border-color:var(--plum)}
+.opt.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.est-out{background:linear-gradient(160deg,var(--plum-deep),var(--plum));color:#fff;border-radius:18px;padding:26px;display:flex;flex-direction:column;justify-content:center}
+.est-out .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#d9c7ec}
+.est-out .big{font-family:"Fraunces",serif;font-size:34px;font-weight:600;line-height:1.05;margin:8px 0 4px}
+.est-out .range{font-size:15px;color:#efe7f6}
+.est-out .disc{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:#c9b3e0;margin-top:14px;line-height:1.5}
+.est-out .btn{margin-top:18px;align-self:flex-start}
+
+/* dashboard */
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:680px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1040px){.kpis{grid-template-columns:repeat(6,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 15px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--plum)}
+.kpi.t::before{background:var(--teal)}.kpi.a::before{background:var(--amber)}.kpi.s::before{background:var(--sky)}
+.kpi .lab{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.kpi .val{font-family:"Fraunces",serif;font-weight:600;font-size:29px;line-height:1;margin-top:9px}
+.kpi .val small{font-size:14px;color:var(--muted)}
+.kpi .sub{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--muted);margin-top:7px}
+.board{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:22px}
+@media(min-width:760px){.board{grid-template-columns:repeat(4,1fr)}}
+.col{background:linear-gradient(180deg,#fff,#fcfbfe);border:1px solid var(--line);border-radius:14px;padding:12px;min-height:110px}
+.col h3{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.col h3 .dot{width:8px;height:8px;border-radius:50%}
+.col h3 .ct{margin-left:auto;color:var(--muted)}
+.pcard{background:#fff;border:1px solid var(--line);border-left:3px solid var(--plum);border-radius:9px;padding:9px 11px;margin-bottom:8px;transition:transform .12s ease,box-shadow .12s ease}
+.pcard:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.pcard .role{font-weight:600;font-size:12.5px;line-height:1.25}
+.pcard .meta{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--muted);margin-top:5px;display:flex;justify-content:space-between;gap:8px}
+.pcard .rate{color:var(--plum);font-weight:600}
+.charts{display:grid;grid-template-columns:1fr;gap:16px;margin-top:22px}
+@media(min-width:820px){.charts{grid-template-columns:1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px;box-shadow:var(--shadow)}
+.panel h3{font-size:14.5px;font-family:"Inter";font-weight:600}
+.panel .cap{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.canvas-box{position:relative;height:220px}
+.src-note{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--muted);margin-top:14px}
+
+/* manifesto */
+.manifesto{background:linear-gradient(160deg,var(--plum-deep),var(--plum));color:#fff;border-radius:24px;padding:46px;box-shadow:0 20px 50px rgba(61,26,92,.26)}
+.manifesto .eyebrow{color:#d9c7ec}
+.manifesto h2{color:#fff;font-size:clamp(24px,3.6vw,36px);max-width:20ch;margin:14px 0 18px}
+.manifesto h2 em{font-style:italic;color:#e9c98f}
+.manifesto p{max-width:64ch;color:#efe7f6;font-size:15.5px;margin:0 0 14px}
+
+/* premium teaser */
+.tiers{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.tiers{grid-template-columns:1fr 1fr}}
+.tier{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--card);box-shadow:var(--shadow)}
+.tier.locked{background:linear-gradient(160deg,#faf7fd,#f4eefb);border-style:dashed}
+.tier .badge{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;display:inline-block}
+.tier.free .badge{background:#e2f4ef;color:var(--teal)}
+.tier.locked .badge{background:#f3e7d0;color:var(--gold)}
+.tier h3{font-size:20px;margin:12px 0 6px;font-family:"Fraunces",serif}
+.tier ul{list-style:none;padding:0;margin:14px 0 0}
+.tier li{padding:8px 0;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink);display:flex;gap:9px}
+.tier li::before{content:"→";color:var(--plum);flex:none}
+.tier.locked li::before{content:"🔒";font-size:11px}
+
+/* profile / contact */
+.profile{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px;box-shadow:var(--shadow)}
+.pf-top{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.avatar{width:76px;height:76px;border-radius:19px;background:linear-gradient(135deg,var(--plum),var(--plum-deep));color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:26px;flex:none}
+.pf-top h3{font-size:26px;font-family:"Fraunces",serif}
+.pf-title{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.pf-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:24px}
+@media(min-width:800px){.pf-grid{grid-template-columns:1fr 1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--plum-soft);color:var(--plum-deep);border-radius:999px;padding:6px 12px;font-size:12.5px}
+.xp{list-style:none;padding:0;margin:0}
+.xp li{padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink)}
+.xp li:last-child{border-bottom:none}
+.h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.contact{margin-top:26px;background:linear-gradient(160deg,var(--plum-deep),var(--plum));color:#fff;border-radius:18px;padding:26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.contact h3{color:#fff;font-size:22px}
+.contact p{color:#e9dcf5;font-size:13.5px;margin:6px 0 0}
+
+footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:11px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="mark">MB</div>
+  <div><div class="brand-name">Mallory Bailey-Finkley</div><div class="brand-sub">Boundless · Strategy &amp; Operations</div></div>
+  <nav>
+    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#pipeline">Live pipeline</a>
+    <a href="#approach">Approach</a><a href="#insights">Insights</a><a href="#work">Work with me</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">Discovering boundless potential — at the next level</span>
+  <h1>Rigor meets <em>abundance.</em></h1>
+  <p class="lede">I help entrepreneurs, small businesses, and operators turn research into decisions and decisions into growth — pairing an engineer's rigor and an MBA's strategy with a belief that potential is never in short supply.</p>
+  <div class="cta">
+    <a class="btn" href="#estimate">Estimate my project →</a>
+    <a class="btn ghost" href="#work">Work with Mallory</a>
+  </div>
+  <div class="tags">
+    <span class="tag">Market &amp; competitive research</span>
+    <span class="tag">Strategy &amp; operations</span>
+    <span class="tag">Business plans &amp; financial models</span>
+    <span class="tag">Grant research</span>
+    <span class="tag">Data &amp; dashboards</span>
+  </div>
+</div></header>
+
+<div class="wrap">
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="sec-head"><span class="eyebrow">01 · What I do</span><h2>Services &amp; indicative rates</h2></div>
+    <div class="svc" id="svc"></div>
+    <p class="src-note">Rates are indicative starting points; every project is scoped to its goals. Use the estimator below for a rough timeframe on yours.</p>
+  </section>
+
+  <!-- ESTIMATOR -->
+  <section id="estimate">
+    <div class="sec-head"><span class="eyebrow">02 · Interactive</span><h2>Estimate your project</h2></div>
+    <p class="lead">Pick what fits — you'll get a rough timeframe and investment range in real time. No email required to see it.</p>
+    <div class="estimator">
+      <div class="est-in">
+        <div class="est-q"><label>What do you need?</label><div class="opts" data-group="service"></div></div>
+        <div class="est-q"><label>How big is it?</label><div class="opts" data-group="scope">
+          <button class="opt" data-v="small">Small / focused</button>
+          <button class="opt" data-v="medium">Medium</button>
+          <button class="opt" data-v="large">Large / comprehensive</button>
+        </div></div>
+        <div class="est-q"><label>Timeline</label><div class="opts" data-group="rush">
+          <button class="opt" data-v="standard">Standard</button>
+          <button class="opt" data-v="rush">Rush</button>
+        </div></div>
+      </div>
+      <div class="est-out">
+        <div class="k">Estimated turnaround</div>
+        <div class="big" id="est-time">Make a selection</div>
+        <div class="range" id="est-range">Indicative investment appears here</div>
+        <div class="disc">A rough guide, not a quote. Share specifics and I'll confirm an exact timeline and price.</div>
+        <a class="btn light" href="#work" id="est-cta">Get an exact quote →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE PIPELINE (portfolio proof + working tool) -->
+  <section id="pipeline">
+    <div class="sec-head"><span class="eyebrow">03 · Proof it works</span><h2>Live proposal pipeline</h2><span class="note" id="src-stamp"></span></div>
+    <p class="lead">A working operations dashboard I maintain for my own freelance pipeline — and a live sample of the kind of dashboard I build for clients. It reads from a Google Sheet, so it updates itself.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin:0 0 20px">
+      <div style="flex:2;min-width:220px;background:linear-gradient(160deg,var(--plum-deep),var(--plum));color:#fff;border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#d9c7ec">Proposals authored for clients · 2026</div>
+        <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:600;line-height:1;margin-top:8px">2 <span style="font-size:14px;color:#d9c7ec">delivered</span></div>
+      </div>
+      <div class="kpi t" style="flex:1;min-width:120px"><div class="lab">Awarded</div><div class="val">1</div><div class="sub">funded &amp; won</div></div>
+      <div class="kpi a" style="flex:1;min-width:120px"><div class="lab">Pending</div><div class="val">1</div><div class="sub">awaiting decision</div></div>
+      <div class="kpi s" style="flex:1;min-width:120px"><div class="lab">Declined</div><div class="val">0</div><div class="sub">no losses yet</div></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="board" id="board-cols"></div>
+    <div class="charts">
+      <div class="panel"><h3>Submissions by day</h3><div class="cap">activity cadence</div><div class="canvas-box"><canvas id="cTime"></canvas></div></div>
+      <div class="panel"><h3>Leads by source</h3><div class="cap">where opportunities come from</div><div class="canvas-box"><canvas id="cSrc"></canvas></div></div>
+    </div>
+    <p class="src-note" id="data-src">Data source: sample (connect a Google Sheet to go live). Client identities are generalized for public sharing.</p>
+  </section>
+
+  <!-- APPROACH / MANIFESTO -->
+  <section id="approach">
+    <div class="manifesto">
+      <span class="eyebrow">04 · The approach</span>
+      <h2>AI <em>and</em> human — not one instead of the other.</h2>
+      <p>The best work today isn't all-human, all-AI, or a person rubber-stamping whatever a model produced. It's a real collaboration: AI to move fast across information, a human to think, question, and decide.</p>
+      <p>I build for people who want to think for themselves — to weigh well-rounded information and choose deliberately, instead of regurgitating the last video, podcast, or opinion they scrolled past. Better inputs, real judgment, boundless outcomes.</p>
+    </div>
+  </section>
+
+  <!-- INSIGHTS / PREMIUM TEASER -->
+  <section id="insights">
+    <div class="sec-head"><span class="eyebrow">05 · Insights</span><h2>Free reads &amp; premium intelligence</h2></div>
+    <p class="lead">Curated opportunities and signal on revenue, community, and environmental impact — with a deeper paid tier for those who want the full picture and projections.</p>
+    <div class="tiers">
+      <div class="tier free">
+        <span class="badge">Free</span>
+        <h3>The Boundless Brief</h3>
+        <ul>
+          <li>Hand-picked grants &amp; opportunities for small orgs</li>
+          <li>Revenue &amp; community-impact ideas worth acting on</li>
+          <li>Environmental &amp; local wins to build on</li>
+        </ul>
+        <a class="btn" style="margin-top:18px" href="#work">Join the free list →</a>
+      </div>
+      <div class="tier locked">
+        <span class="badge">Premium · coming soon</span>
+        <h3>Boundless Intelligence</h3>
+        <ul>
+          <li>Advanced gig &amp; market analytics — history, present, projections</li>
+          <li>Tailored recommendations &amp; opportunity forecasts</li>
+          <li>Priority access to deeper research and tools</li>
+        </ul>
+        <a class="btn ghost" style="margin-top:18px" href="#work">Get notified →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK WITH ME / PROFILE -->
+  <section id="work">
+    <div class="sec-head"><span class="eyebrow">06 · The operator</span><h2>Work with Mallory</h2></div>
+    <div class="profile">
+      <div class="pf-top">
+        <div class="avatar">MBF</div>
+        <div><h3>Mallory Bailey-Finkley, MBA</h3>
+          <div class="pf-title">Market Research · Strategy · Operations — Memphis, TN · Remote, worldwide</div></div>
+      </div>
+      <div class="pf-grid">
+        <div>
+          <div class="h4">Core capabilities</div>
+          <div class="chips">
+            <span class="chip">Market &amp; competitive research</span><span class="chip">Business strategy &amp; operations</span>
+            <span class="chip">Financial models &amp; business plans</span><span class="chip">Investor decks &amp; fundraising</span>
+            <span class="chip">Grant research</span><span class="chip">Data analysis &amp; dashboards</span>
+            <span class="chip">Brand &amp; go-to-market</span><span class="chip">AI-accelerated research</span>
+          </div>
+          <div class="h4" style="margin-top:22px">Recognition</div>
+          <ul class="xp"><li>MBA &amp; B.S. Civil Engineering — Christian Brothers University</li><li>2025 Local Business Person of the Year</li></ul>
+        </div>
+        <div>
+          <div class="h4">Selected experience</div>
+          <ul class="xp">
+            <li>Founder &amp; principal — boutique marketing-and-data consultancy</li>
+            <li>Director of Planning, Tunica County · West TN ASCE Board</li>
+            <li>Investor decks for a VC firm &amp; an EV startup — both advanced to the next funding stage</li>
+            <li>"Experience Tunica County" rebrand · founded an annual fundraiser · $30K+ nonprofit program funding</li>
+          </ul>
+        </div>
+      </div>
+      <div class="contact">
+        <div><h3>Let's find your boundless potential.</h3>
+          <p>Tell me about your project and I'll reply with an exact timeline and quote.</p></div>
+        <!-- EDIT: point these to Mallory's real contact form / email before publishing -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn light" href="#" id="contact-form">Start a project →</a>
+          <a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#" id="contact-brief">Join the brief</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span><br />
+  Discovering boundless potential, at the next level. · Live pipeline reads from a connected Google Sheet.
+</div></footer>
+
+<script>
+/* ============================================================
+   CONFIG — paste your published Google Sheet CSV URL here.
+   (File → Share → Publish to web → your tab → CSV → copy link)
+   Leave "" to use the built-in sample data.
+   Sheet columns: Source, Role, Category, Client, RateType, Rate,
+                  Fixed, Date, Status, Notes
+   ============================================================ */
+const SHEET_CSV_URL = "";
+
+/* contact links — replace "#" with a form (Tally/Google Form) or mailto */
+const CONTACT_URL = "#";      // e.g. https://tally.so/r/xxxx  or  mailto:hello@yourdomain.com
+const BRIEF_URL   = "#";      // e.g. your beehiiv/Substack signup
+
+/* ---- fallback sample data (used until the Sheet is connected) ---- */
+const SAMPLE = [
+  {source:"Upwork",role:"Market Analysis",cat:"Research",client:"Individual · Montreal, CAN",rateType:"hr",rate:30,fixed:null,date:"2026-06-29",status:"Submitted"},
+  {source:"Upwork",role:"Market Intelligence & Benchmarking",cat:"Research",client:"Individual · Melbourne, AUS",rateType:"hr",rate:40,fixed:null,date:"2026-06-28",status:"Submitted"},
+  {source:"Upwork",role:"Chief Operating Officer",cat:"Operations",client:"DTC fashion brand · Los Angeles, US",rateType:"hr",rate:55,fixed:null,date:"2026-06-30",status:"Submitted"},
+  {source:"Upwork",role:"Positive News Researcher",cat:"Research & Content",client:"Media brand · US",rateType:"hr",rate:45,fixed:null,date:"2026-06-30",status:"Submitted"},
+  {source:"Upwork",role:"Grant Research",cat:"Grants",client:"Public-health evaluation firm · Compton, US",rateType:"hr",rate:35,fixed:null,date:"2026-06-30",status:"Submitted"},
+  {source:"Upwork",role:"Business Plan Review (SBA Loan)",cat:"Business Plan & Finance",client:"Individual · San Diego, US",rateType:"fixed",rate:null,fixed:500,date:"2026-06-30",status:"Submitted"},
+  {source:"Upwork",role:"Fractional COO / Operations Consultant",cat:"Operations",client:"Individual · Huntington, US",rateType:"hr",rate:95,fixed:null,date:"2026-07-01",status:"Submitted"},
+  {source:"Upwork",role:"Comprehensive Business Plan & Model",cat:"Business Plan & Finance",client:"Nonprofit · worldwide",rateType:"hr",rate:48,fixed:null,date:null,status:"Drafted"},
+  {source:"Upwork",role:"YouTube Researcher (Science)",cat:"Research & Content",client:"Individual · Walsall, UK",rateType:"fixed",rate:null,fixed:100,date:null,status:"Paused"}
+];
+
+/* ---- services ---- */
+const SERVICES = [
+  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"from $35–45/hr"},
+  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"$55–95/hr"},
+  {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"projects from $500"},
+  {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"$35/hr · monthly"},
+  {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"scoped per deck"},
+  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"scoped per build"}
+];
+
+/* ============================ render ============================ */
+const money=n=>"$"+Number(n).toLocaleString("en-US");
+const dshort=d=>d?new Date(d).toLocaleDateString("en-US",{month:"short",day:"numeric"}):"—";
+const bid=p=>p.rateType==="fixed"?money(p.fixed)+" fixed":money(p.rate)+"/hr";
+
+/* services */
+document.getElementById("svc").innerHTML=SERVICES.map(s=>`
+  <div class="scard"><div class="ic">${s.ic}</div><h3>${s.t}</h3><p>${s.d}</p><div class="rate">${s.r}</div></div>`).join("");
+
+/* estimator */
+const SVC_OPTS=[["research","Research"],["strategy","Strategy & ops"],["plan","Business plan / model"],["deck","Investor deck"],["grants","Grant research"],["dashboard","Data / dashboard"]];
+document.querySelector('[data-group="service"]').innerHTML=SVC_OPTS.map(o=>`<button class="opt" data-v="${o[0]}">${o[1]}</button>`).join("");
+const pick={service:null,scope:null,rush:null};
+const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3}; // weeks, medium/standard
+const SCOPE={small:.6,medium:1,large:1.7};
+const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000]};
+function bucket(w){if(w<1)return"Under 1 week";if(w<2)return"1–2 weeks";if(w<4)return"2–4 weeks";return"4+ weeks";}
+function estimate(){
+  if(!pick.service||!pick.scope||!pick.rush){return;}
+  let w=BASE[pick.service]*SCOPE[pick.scope];
+  if(pick.rush==="rush")w*=.6;
+  const [lo,hi]=PRICE[pick.service];const s=SCOPE[pick.scope];
+  let plo=Math.round(lo*s/50)*50, phi=Math.round(hi*s/50)*50;
+  if(pick.rush==="rush"){plo=Math.round(plo*1.25/50)*50;phi=Math.round(phi*1.25/50)*50;}
+  document.getElementById("est-time").textContent=bucket(w);
+  document.getElementById("est-range").textContent="Indicative: "+money(plo)+"–"+money(phi);
+}
+document.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",e=>{
+  const g=e.target.closest(".opts").dataset.group;
+  e.target.closest(".opts").querySelectorAll(".opt").forEach(x=>x.classList.remove("on"));
+  e.target.classList.add("on");pick[g]=e.target.dataset.v;estimate();
+}));
+
+/* dashboard render from data */
+function renderDash(P){
+  const sub=P.filter(p=>p.status==="Submitted");
+  const hourly=sub.filter(p=>p.rateType==="hr");
+  const avg=hourly.length?Math.round(hourly.reduce((a,p)=>a+p.rate,0)/hourly.length):0;
+  const mn=hourly.length?Math.min(...hourly.map(p=>p.rate)):0, mx=hourly.length?Math.max(...hourly.map(p=>p.rate)):0;
+  const fixedPipe=sub.filter(p=>p.rateType==="fixed").reduce((a,p)=>a+(p.fixed||0),0);
+  const awarded=P.filter(p=>p.status==="Awarded").length, interviewing=P.filter(p=>p.status==="Interviewing").length;
+  const sources=new Set(P.map(p=>p.source).filter(Boolean));
+  const kpis=[
+    {l:"Proposals submitted",v:sub.length,s:"across "+new Set(sub.map(p=>p.client)).size+" clients",c:""},
+    {l:"Awaiting response",v:sub.length-awarded-interviewing,s:awarded+" awarded · "+interviewing+" interviewing",c:"a"},
+    {l:"Avg hourly bid",v:money(avg)+"<small>/hr</small>",s:"range "+money(mn)+"–"+money(mx),c:""},
+    {l:"Fixed-price pipeline",v:money(fixedPipe),s:awarded?"":"none awarded yet",c:"s"},
+    {l:"Work categories",v:new Set(sub.map(p=>p.cat)).size,s:"distinct service types",c:""},
+    {l:"Lead sources",v:sources.size,s:[...sources].join(" · ")||"—",c:"t"}
+  ];
+  document.getElementById("kpis").innerHTML=kpis.map(k=>`<div class="kpi ${k.c}"><div class="lab">${k.l}</div><div class="val">${k.v}</div><div class="sub">${k.s}</div></div>`).join("");
+
+  const COLS=[["Submitted","Submitted","#3562B8"],["Interviewing","Interviewing","#C7891F"],["Awarded","Awarded","#0E8A6E"],["Other","Drafted / Paused","#8A63B0"]];
+  document.getElementById("board-cols").innerHTML=COLS.map(c=>{
+    const it=P.filter(p=>c[0]==="Other"?(p.status==="Drafted"||p.status==="Paused"):p.status===c[0]);
+    return `<div class="col"><h3><span class="dot" style="background:${c[2]}"></span>${c[1]}<span class="ct">${it.length}</span></h3>
+      ${it.map(p=>`<div class="pcard" style="border-left-color:${c[2]}"><div class="role">${p.role}</div>
+        <div class="meta"><span class="rate">${bid(p)}</span><span>${p.status==="Drafted"?"draft":p.status==="Paused"?"paused":dshort(p.date)}</span></div></div>`).join("")||`<div class="meta">—</div>`}
+    </div>`;}).join("");
+  document.getElementById("src-stamp").textContent=sub.length+" active proposals";
+
+  if(typeof Chart!=="undefined"){
+    Chart.defaults.font.family="'IBM Plex Mono', monospace";Chart.defaults.font.size=11;Chart.defaults.color="#6E6683";
+    const grid="rgba(94,42,134,.08)";
+    const byDay={};sub.filter(p=>p.date).forEach(p=>{const k=dshort(p.date);byDay[k]=(byDay[k]||0)+1;});
+    const days=Object.keys(byDay).sort((a,b)=>new Date(a+" 2026")-new Date(b+" 2026"));
+    new Chart(cTime,{type:"bar",data:{labels:days,datasets:[{data:days.map(d=>byDay[d]),backgroundColor:"#5B2A86",borderRadius:6,barThickness:30}]},
+      options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1,precision:0},grid:{color:grid}},x:{grid:{display:false}}},maintainAspectRatio:false}});
+    const bySrc={};P.forEach(p=>{if(p.source)bySrc[p.source]=(bySrc[p.source]||0)+1;});
+    new Chart(cSrc,{type:"doughnut",data:{labels:Object.keys(bySrc),datasets:[{data:Object.values(bySrc),backgroundColor:["#5B2A86","#3562B8","#0E8A6E","#C7891F","#B23A48","#C79A3A"],borderWidth:2,borderColor:"#fff"}]},
+      options:{cutout:"58%",plugins:{legend:{position:"right",labels:{boxWidth:10,padding:10}}},maintainAspectRatio:false}});
+  }
+}
+
+/* load from sheet or fallback */
+function mapRow(r){
+  const g=(...k)=>{for(const key of k){const v=Object.keys(r).find(h=>h.toLowerCase().trim()===key);if(v&&r[v]!=="")return r[v];}return "";};
+  const num=x=>x===""||x==null?null:Number(x);
+  return {source:g("source"),role:g("role"),cat:g("category","cat"),client:g("client"),
+    rateType:(g("ratetype")||"hr").toLowerCase(),rate:num(g("rate")),fixed:num(g("fixed")),
+    date:g("date")||null,status:g("status")||"Submitted"};
+}
+function boot(data,live){
+  renderDash(data);
+  document.getElementById("data-src").textContent="Data source: "+(live?"live Google Sheet":"sample (connect a Google Sheet to go live)")+". Client identities are generalized for public sharing.";
+}
+document.getElementById("foot-date").textContent=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
+document.getElementById("contact-form").href=CONTACT_URL;
+document.getElementById("est-cta").href=CONTACT_URL;
+document.getElementById("contact-brief").href=BRIEF_URL;
+if(SHEET_CSV_URL && window.Papa){
+  Papa.parse(SHEET_CSV_URL,{download:true,header:true,skipEmptyLines:true,
+    complete:res=>{try{const rows=res.data.map(mapRow).filter(r=>r.role);boot(rows.length?rows:SAMPLE,rows.length>0);}catch(e){boot(SAMPLE,false);}},
+    error:()=>boot(SAMPLE,false)});
+}else{boot(SAMPLE,false);}
+</script>
+</body>
+</html>
