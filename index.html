@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mallory Bailey-Finkley — Boundless</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%235B2A86'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20text-anchor='middle'%20fill='white'%3EMB%3C/text%3E%3C/svg%3E" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%235B2A86'/%3E%3Ctext%20x='32'%20y='43'%20font-family='Georgia,serif'%20font-size='22'%20font-weight='700'%20text-anchor='middle'%20fill='white'%3EMBF%3C/text%3E%3C/svg%3E" />
 <meta name="description" content="Market research, strategy & operations. Discovering boundless potential — at the next level." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +35,7 @@ a{color:inherit}
 /* top */
 .topbar{position:sticky;top:0;z-index:60;background:rgba(250,248,252,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .topbar .wrap{display:flex;align-items:center;gap:14px;height:64px}
-.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--plum),var(--plum-deep));color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:15px;flex:none;box-shadow:var(--shadow)}
+.mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--plum),var(--plum-deep));color:#fff;display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:700;font-size:13px;flex:none;box-shadow:var(--shadow)}
 .brand-name{font-family:"Fraunces",serif;font-weight:600;font-size:16px;line-height:1.05}
 .brand-sub{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .topbar nav{margin-left:auto;display:none;gap:4px}
@@ -100,7 +100,7 @@ section{padding:56px 0;position:relative}
 .kpi .sub{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--muted);margin-top:7px}
 .board{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:22px}
 @media(min-width:760px){.board{grid-template-columns:repeat(4,1fr)}}
-.col{background:linear-gradient(180deg,#fff,#fcfbfe);border:1px solid var(--line);border-radius:14px;padding:12px;min-height:110px}
+.col{background:linear-gradient(180deg,#fff,#fcfbfe);border:1px solid var(--line);border-radius:14px;padding:12px;min-height:110px;max-height:352px;overflow-y:auto;scrollbar-width:thin}
 .col h3{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:11px;letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:11px}
 .col h3 .dot{width:8px;height:8px;border-radius:50%}
 .col h3 .ct{margin-left:auto;color:var(--muted)}
@@ -188,13 +188,16 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 .pcard2 li{font-size:12.5px;color:var(--ink);padding:6px 0;border-top:1px solid var(--line);display:flex;gap:8px}
 .pcard2 li::before{content:"\2713";color:var(--teal);font-weight:700;flex:none}
 .pcard2 .badge2{position:absolute;top:-10px;right:14px;background:var(--plum);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+#toTop{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:none;background:var(--plum);color:#fff;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 8px 24px rgba(91,42,134,.35);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s;z-index:60}
+#toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+#toTop:hover{background:var(--plum-deep)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <div class="topbar"><div class="wrap">
-  <div class="mark">MB</div>
+  <div class="mark">MBF</div>
   <div><div class="brand-name">Mallory Bailey-Finkley</div><div class="brand-sub">Boundless · Strategy &amp; Operations</div></div>
   <nav>
     <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#web">Web</a><a href="#portfolio">Work</a><a href="#pipeline">Pipeline</a>
@@ -385,11 +388,11 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     <div class="tgrid">
       <figure class="tcard">
         <blockquote>&ldquo;Combines creativity with data-driven solutions, with every step aligned to business goals.&rdquo;</blockquote>
-        <figcaption>Noor Yaghoubi · Database To Dashboard</figcaption>
+        <figcaption>Noor Y. · Data &amp; analytics</figcaption>
       </figure>
       <figure class="tcard">
         <blockquote>&ldquo;Precision, professionalism, and creative thinking, with a holistic view of business and marketing.&rdquo;</blockquote>
-        <figcaption>LaToya Germaine · Germane Learning</figcaption>
+        <figcaption>LaToya G. · Learning &amp; development</figcaption>
       </figure>
     </div>
   </section>
@@ -408,32 +411,30 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
   <section id="insights">
     <div class="sec-head"><span class="eyebrow">05 · Insights</span><h2>Free resources</h2></div>
     <p class="lead">Practical, on-brand tools you can download and use today. Grab any of them free — just tell me where to send it.</p>
-    <div class="svc" style="margin-bottom:34px">
+    <div class="svc" style="margin-bottom:22px">
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
         <h3>The 4-Part Filter for Clearer Decisions</h3>
         <p>A 60-second framework for deciding from well-rounded information, not noise.</p>
-        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
       </div>
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
         <h3>Grant Readiness Checklist</h3>
         <p>Ten checks to run before you spend hours on any grant application.</p>
-        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
       </div>
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
         <h3>What Makes a Proposal Win</h3>
         <p>Seven principles behind proposals that actually get chosen.</p>
-        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
       </div>
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
         <h3>The One-Page Business Plan Starter</h3>
         <p>Your whole plan on one page — a fill-in template to get clear fast.</p>
-        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
       </div>
     </div>
+    <a class="btn res-btn" href="#">Get all four free →</a>
+    <p class="src-note" style="margin-top:12px">One quick form — tell me where to send them and you can grab all four.</p>
   </section>
 
   <!-- FAQ -->
@@ -456,7 +457,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       <div class="pf-top">
         <div class="avatar">MBF</div>
         <div><h3>Mallory Bailey-Finkley, MBA</h3>
-          <div class="pf-title">Market Research · Strategy · Operations — Memphis, TN · Remote, worldwide</div></div>
+          <div class="pf-title">Market Research · Strategy · Operations — Remote, worldwide</div></div>
       </div>
       <div class="pf-grid">
         <div>
@@ -495,7 +496,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 
 <footer><div class="wrap">
   Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span><br />
-  Discovering boundless potential, at the next level. · Live pipeline reads from a connected Google Sheet.
+  Discovering boundless potential, at the next level.
 </div></footer>
 
 <script>
@@ -528,13 +529,13 @@ const SAMPLE = [
 
 /* ---- services ---- */
 const SERVICES = [
-  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"projects from $600"},
-  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"fixed or 28-day retainer"},
-  {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"projects from $500"},
-  {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"28-day retainer"},
-  {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"scoped per deck"},
-  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"scoped per build"},
-  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites from $350"}
+  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"$600–2,500 / project"},
+  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"$1,500–6,000 / 28 days"},
+  {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"$500–4,000 / project"},
+  {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"$300–1,200 / 28 days"},
+  {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"$600–3,000 / deck"},
+  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"$800–5,000 / build"},
+  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites $350–2,200"}
 ];
 
 /* ============================ render ============================ */
@@ -634,6 +635,12 @@ if(SHEET_CSV_URL && window.Papa){
     complete:res=>{try{const rows=res.data.map(mapRow).filter(r=>r.role);boot(rows.length?rows:SAMPLE,rows.length>0);}catch(e){boot(SAMPLE,false);}},
     error:()=>boot(SAMPLE,false)});
 }else{boot(SAMPLE,false);}
+</script>
+<button id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function(){var b=document.getElementById("toTop");if(!b)return;
+addEventListener("scroll",function(){b.classList.toggle("show",(window.scrollY||document.documentElement.scrollTop)>500)},{passive:true});
+b.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});})();
 </script>
 </body>
 </html>
