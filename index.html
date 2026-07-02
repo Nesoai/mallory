@@ -157,6 +157,19 @@ section{padding:56px 0;position:relative}
 
 footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:11px;text-align:center;border-top:1px solid var(--line);margin-top:24px}
 
+.steps{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.step .n{font-family:"Fraunces",serif;font-weight:700;font-size:30px;color:var(--plum);line-height:1}
+.step h3{font-size:17px;margin:12px 0 6px;font-family:"Fraunces",serif}
+.step p{color:var(--muted);font-size:13.5px;margin:0}
+.faq{display:grid;gap:12px;max-width:780px}
+details.qa{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2px 18px;box-shadow:var(--shadow)}
+details.qa summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::after{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--plum);font-size:20px;flex:none}
+details.qa[open] summary::after{content:"\2013"}
+details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
@@ -166,8 +179,8 @@ footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monosp
   <div class="mark">MB</div>
   <div><div class="brand-name">Mallory Bailey-Finkley</div><div class="brand-sub">Boundless · Strategy &amp; Operations</div></div>
   <nav>
-    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#pipeline">Live pipeline</a>
-    <a href="#approach">Approach</a><a href="#insights">Insights</a><a href="#work">Work with me</a>
+    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#how">How it works</a><a href="#pipeline">Pipeline</a>
+    <a href="#approach">Approach</a><a href="#insights">Insights</a><a href="#faq">FAQ</a><a href="#work">Work with me</a>
   </nav>
 </div></div>
 
@@ -221,6 +234,16 @@ footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monosp
         <div class="disc">A rough guide, not a quote. Share specifics and I'll confirm an exact timeline and price.</div>
         <a class="btn light" href="#work" id="est-cta">Get an exact quote →</a>
       </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="sec-head"><span class="eyebrow">Getting started</span><h2>How it works</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Estimate</h3><p>Use the instant estimator above for a rough timeline and investment range — no email required.</p></div>
+      <div class="step"><div class="n">2</div><h3>Share details</h3><p>Send your project through a quick intake form. I reply with an exact quote and a clear plan.</p></div>
+      <div class="step"><div class="n">3</div><h3>Kickoff &amp; deliver</h3><p>We agree on scope and milestones, then I deliver clear, decision-ready work — revisions built in.</p></div>
     </div>
   </section>
 
@@ -284,6 +307,19 @@ footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monosp
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="sec-head"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
+    <div class="faq">
+      <details class="qa"><summary>What's your typical turnaround?</summary><p>It depends on scope — most focused projects land in 1–2 weeks. Use the estimator above for a rough read, or reach out and I'll confirm exact timing.</p></details>
+      <details class="qa"><summary>How do revisions work?</summary><p>Revisions are built into every project, so we get the result right — not just done.</p></details>
+      <details class="qa"><summary>How does payment work?</summary><p>Milestone-based for larger projects and fixed fees for well-defined ones (for example, $40 per one-page proposal). On Upwork, payment is held safely in escrow and released as milestones are approved.</p></details>
+      <details class="qa"><summary>Do you work remotely and worldwide?</summary><p>Yes — I work fully remote with clients anywhere.</p></details>
+      <details class="qa"><summary>Do you use AI?</summary><p>Yes, as a tool — paired with real human judgment. AI to move quickly across information; a person to think, question, and decide. Never one without the other.</p></details>
+      <details class="qa"><summary>How do we start?</summary><p>Send your project through the intake form and you'll get an exact timeline and quote. That's it.</p></details>
+    </div>
+  </section>
+
   <!-- WORK WITH ME / PROFILE -->
   <section id="work">
     <div class="sec-head"><span class="eyebrow">06 · The operator</span><h2>Work with Mallory</h2></div>
@@ -344,8 +380,8 @@ footer{padding:44px 0 64px;color:var(--muted);font-family:"IBM Plex Mono",monosp
 const SHEET_CSV_URL = "";
 
 /* contact links — replace "#" with a form (Tally/Google Form) or mailto */
-const CONTACT_URL = "#";      // e.g. https://tally.so/r/xxxx  or  mailto:hello@yourdomain.com
-const BRIEF_URL   = "#";      // e.g. your beehiiv/Substack signup
+const CONTACT_URL = "https://forms.gle/GpTgXfXHmYRsAxaE7";   // Start-a-project intake form
+const BRIEF_URL   = "mailto:boundless.mbf@gmail.com?subject=Join%20the%20Boundless%20Brief";  // interim until Substack launches
 
 /* ---- fallback sample data (used until the Sheet is connected) ---- */
 const SAMPLE = [
