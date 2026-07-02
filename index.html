@@ -232,11 +232,11 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
   <section id="web">
     <div class="sec-head"><span class="eyebrow">Now offering</span><h2>Boundless Web — sites, done for you</h2></div>
     <p class="lead">Fast, beautiful, custom sites for small businesses and solo professionals: internet business cards, portfolios, landing pages, event or menu pages, brochure sites, and interactive one-pagers like this one. I design, build, host, and maintain it — you never touch code. This very site is one sample — here's another:</p>
-    <p style="margin:-8px 0 26px"><a class="btn ghost" href="sample/">See a live sample site →</a></p>
+    <p style="margin:-8px 0 26px"><a class="btn ghost" href="sample.html">See a live sample site →</a></p>
     <div class="pkg">
       <div class="pcard2">
         <div class="pk">Starter</div>
-        <div class="pr">$400–700</div>
+        <div class="pr">$350–700</div>
         <div class="tl">One-page site</div>
         <ul>
           <li>Single scrolling page</li>
@@ -250,7 +250,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       <div class="pcard2 feat">
         <span class="badge2">Most popular</span>
         <div class="pk">Signature</div>
-        <div class="pr">$900–1,800</div>
+        <div class="pr">$800–1,500</div>
         <div class="tl">Interactive one-pager</div>
         <ul>
           <li>Everything in Starter</li>
@@ -262,7 +262,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       </div>
       <div class="pcard2">
         <div class="pk">Multi-section</div>
-        <div class="pr">$1,500–3,000</div>
+        <div class="pr">$1,500–2,200</div>
         <div class="tl">Small site</div>
         <ul>
           <li>3–5 linked pages or sections</li>
@@ -280,9 +280,9 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
           <li>Edits &amp; content updates</li>
           <li>Small additions</li>
           <li>Priority turnaround</li>
-          <li>Or $75–150 per change</li>
+          <li>Or $50–125 per change</li>
         </ul>
-        <a class="btn proj-btn" href="#">Ask about care →</a>
+        <a class="btn care-btn" href="#">Ask about care →</a>
       </div>
     </div>
     <p class="src-note" style="margin-top:16px">Done-for-you means I handle the build, hosting, and every change. A custom domain (~$12/yr, optional) is billed to you. Projects start with a 50% deposit, balance on launch.</p>
@@ -406,10 +406,8 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 
   <!-- INSIGHTS / PREMIUM TEASER -->
   <section id="insights">
-    <div class="sec-head"><span class="eyebrow">05 · Insights</span><h2>Free reads &amp; premium intelligence</h2></div>
-    <p class="lead">Curated opportunities and signal on revenue, community, and environmental impact — with a deeper paid tier for those who want the full picture and projections.</p>
-    <h3 style="font-family:'Fraunces',serif;font-size:19px;margin:0 0 4px">Free downloads</h3>
-    <p class="src-note" style="margin:0 0 18px">Grab any of these free — just tell me where to send them. Each opens a quick form.</p>
+    <div class="sec-head"><span class="eyebrow">05 · Insights</span><h2>Free resources</h2></div>
+    <p class="lead">Practical, on-brand tools you can download and use today. Grab any of them free — just tell me where to send it.</p>
     <div class="svc" style="margin-bottom:34px">
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
@@ -434,28 +432,6 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
         <h3>The One-Page Business Plan Starter</h3>
         <p>Your whole plan on one page — a fill-in template to get clear fast.</p>
         <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
-      </div>
-    </div>
-    <div class="tiers">
-      <div class="tier free">
-        <span class="badge">Free</span>
-        <h3>The Boundless Brief</h3>
-        <ul>
-          <li>Hand-picked grants &amp; opportunities for small orgs</li>
-          <li>Revenue &amp; community-impact ideas worth acting on</li>
-          <li>Environmental &amp; local wins to build on</li>
-        </ul>
-        <a class="btn" style="margin-top:18px" href="#work">Join the free list →</a>
-      </div>
-      <div class="tier locked">
-        <span class="badge">Premium · coming soon</span>
-        <h3>Boundless Intelligence</h3>
-        <ul>
-          <li>Advanced gig &amp; market analytics — history, present, projections</li>
-          <li>Tailored recommendations &amp; opportunity forecasts</li>
-          <li>Priority access to deeper research and tools</li>
-        </ul>
-        <a class="btn ghost" style="margin-top:18px" href="#work">Get notified →</a>
       </div>
     </div>
   </section>
@@ -510,7 +486,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
         <!-- EDIT: point these to Mallory's real contact form / email before publishing -->
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a class="btn light" href="#" id="contact-form">Start a project →</a>
-          <a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#" id="contact-brief">Join the brief</a>
+          <a class="btn ghost res-btn" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#">Get the free resources →</a>
         </div>
       </div>
     </div>
@@ -534,8 +510,8 @@ const SHEET_CSV_URL = "";
 
 /* contact links — replace "#" with a form (Tally/Google Form) or mailto */
 const CONTACT_URL = "https://forms.gle/GpTgXfXHmYRsAxaE7";   // Start-a-project intake form
-const BRIEF_URL   = "mailto:boundless.mbf@gmail.com?subject=Join%20the%20Boundless%20Brief";  // interim until Substack launches
-const RESOURCES_URL = "#";   // gated "Boundless Free Resources" form — paste its link here
+const CARE_URL    = "mailto:boundless.mbf@gmail.com?subject=Boundless%20Web%20care%20plan";  // care-plan questions
+const RESOURCES_URL = "https://forms.gle/Wgf8SxTs1JNmgPtN7";   // Boundless Free Resources form
 
 /* ---- fallback sample data (used until the Sheet is connected) ---- */
 const SAMPLE = [
@@ -552,19 +528,19 @@ const SAMPLE = [
 
 /* ---- services ---- */
 const SERVICES = [
-  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"from $35–45/hr"},
-  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"$55–95/hr"},
+  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"projects from $600"},
+  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"fixed or 28-day retainer"},
   {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"projects from $500"},
-  {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"$35/hr · monthly"},
+  {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"28-day retainer"},
   {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"scoped per deck"},
   {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"scoped per build"},
-  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites from $400"}
+  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites from $350"}
 ];
 
 /* ============================ render ============================ */
 const money=n=>"$"+Number(n).toLocaleString("en-US");
 const dshort=d=>d?new Date(d).toLocaleDateString("en-US",{month:"short",day:"numeric"}):"—";
-const bid=p=>p.rateType==="fixed"?money(p.fixed)+" fixed":money(p.rate)+"/hr";
+const bid=p=>p.rateType==="fixed"?money(p.fixed)+" fixed":(p.cat||"Proposal");
 
 /* services */
 document.getElementById("svc").innerHTML=SERVICES.map(s=>`
@@ -576,7 +552,7 @@ document.querySelector('[data-group="service"]').innerHTML=SVC_OPTS.map(o=>`<but
 const pick={service:null,scope:null,rush:null};
 const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3,web:1.5}; // weeks, medium/standard
 const SCOPE={small:.6,medium:1,large:1.7};
-const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000],web:[500,2800]};
+const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000],web:[350,2200]};
 function bucket(w){if(w<1)return"Under 1 week";if(w<2)return"1–2 weeks";if(w<4)return"2–4 weeks";return"4+ weeks";}
 function estimate(){
   if(!pick.service||!pick.scope||!pick.rush){return;}
@@ -606,7 +582,7 @@ function renderDash(P){
   const kpis=[
     {l:"Proposals submitted",v:sub.length,s:"across "+new Set(sub.map(p=>p.client)).size+" clients",c:""},
     {l:"Awaiting response",v:sub.length-awarded-interviewing,s:awarded+" awarded · "+interviewing+" interviewing",c:"a"},
-    {l:"Avg hourly bid",v:money(avg)+"<small>/hr</small>",s:"range "+money(mn)+"–"+money(mx),c:""},
+    {l:"Engagement model",v:"Fixed · 28-day",s:"flat-fee or 4-week cycles",c:""},
     {l:"Fixed-price pipeline",v:money(fixedPipe),s:awarded?"":"none awarded yet",c:"s"},
     {l:"Work categories",v:new Set(sub.map(p=>p.cat)).size,s:"distinct service types",c:""},
     {l:"Lead sources",v:sources.size,s:[...sources].join(" · ")||"—",c:"t"}
@@ -650,7 +626,7 @@ function boot(data,live){
 document.getElementById("foot-date").textContent=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
 document.getElementById("contact-form").href=CONTACT_URL;
 document.getElementById("est-cta").href=CONTACT_URL;
-document.getElementById("contact-brief").href=BRIEF_URL;
+document.querySelectorAll(".care-btn").forEach(a=>a.href=CARE_URL);
 document.querySelectorAll(".res-btn").forEach(a=>a.href=RESOURCES_URL);
 document.querySelectorAll(".proj-btn").forEach(a=>a.href=CONTACT_URL);
 if(SHEET_CSV_URL && window.Papa){
