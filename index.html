@@ -176,6 +176,18 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 .tcard{margin:0;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--plum);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
 .tcard blockquote{margin:0;font-family:"Fraunces",serif;font-size:18px;line-height:1.4;color:var(--ink)}
 .tcard figcaption{margin-top:14px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--plum)}
+.pkg{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:680px){.pkg{grid-template-columns:1fr 1fr}}
+@media(min-width:1040px){.pkg{grid-template-columns:repeat(4,1fr)}}
+.pcard2{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
+.pcard2.feat{border:2px solid var(--plum)}
+.pcard2 .pk{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--plum)}
+.pcard2 .pr{font-family:"Fraunces",serif;font-size:25px;font-weight:600;color:var(--ink);margin:8px 0 2px;line-height:1}
+.pcard2 .tl{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.pcard2 ul{list-style:none;padding:0;margin:0 0 16px;flex:1}
+.pcard2 li{font-size:12.5px;color:var(--ink);padding:6px 0;border-top:1px solid var(--line);display:flex;gap:8px}
+.pcard2 li::before{content:"\2713";color:var(--teal);font-weight:700;flex:none}
+.pcard2 .badge2{position:absolute;top:-10px;right:14px;background:var(--plum);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
@@ -185,8 +197,8 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
   <div class="mark">MB</div>
   <div><div class="brand-name">Mallory Bailey-Finkley</div><div class="brand-sub">Boundless · Strategy &amp; Operations</div></div>
   <nav>
-    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#portfolio">Work</a><a href="#pipeline">Pipeline</a>
-    <a href="#approach">Approach</a><a href="#insights">Insights</a><a href="#faq">FAQ</a><a href="#work">Contact</a>
+    <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#web">Web</a><a href="#portfolio">Work</a><a href="#pipeline">Pipeline</a>
+    <a href="#insights">Insights</a><a href="#faq">FAQ</a><a href="#work">Contact</a>
   </nav>
 </div></div>
 
@@ -214,6 +226,66 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     <div class="sec-head"><span class="eyebrow">01 · What I do</span><h2>Services &amp; indicative rates</h2></div>
     <div class="svc" id="svc"></div>
     <p class="src-note">Rates are indicative starting points; every project is scoped to its goals. Use the estimator below for a rough timeframe on yours.</p>
+  </section>
+
+  <!-- WEB DESIGN -->
+  <section id="web">
+    <div class="sec-head"><span class="eyebrow">Now offering</span><h2>Boundless Web — sites, done for you</h2></div>
+    <p class="lead">Fast, beautiful, custom sites for small businesses and solo professionals: internet business cards, portfolios, landing pages, event or menu pages, brochure sites, and interactive one-pagers like this one. I design, build, host, and maintain it — you never touch code. This very site is one sample — here's another:</p>
+    <p style="margin:-8px 0 26px"><a class="btn ghost" href="sample/">See a live sample site →</a></p>
+    <div class="pkg">
+      <div class="pcard2">
+        <div class="pk">Starter</div>
+        <div class="pr">$400–700</div>
+        <div class="tl">One-page site</div>
+        <ul>
+          <li>Single scrolling page</li>
+          <li>Your content &amp; photos</li>
+          <li>Mobile-responsive</li>
+          <li>Contact form</li>
+          <li>Hosted, with a live URL</li>
+        </ul>
+        <a class="btn proj-btn" href="#">Start a project →</a>
+      </div>
+      <div class="pcard2 feat">
+        <span class="badge2">Most popular</span>
+        <div class="pk">Signature</div>
+        <div class="pr">$900–1,800</div>
+        <div class="tl">Interactive one-pager</div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>An interactive element — estimator, gallery, or live data</li>
+          <li>Custom graphics &amp; favicon</li>
+          <li>Basic SEO setup</li>
+        </ul>
+        <a class="btn proj-btn" href="#">Start a project →</a>
+      </div>
+      <div class="pcard2">
+        <div class="pk">Multi-section</div>
+        <div class="pr">$1,500–3,000</div>
+        <div class="tl">Small site</div>
+        <ul>
+          <li>3–5 linked pages or sections</li>
+          <li>Resource downloads</li>
+          <li>Lead-capture forms</li>
+          <li>Everything in Signature</li>
+        </ul>
+        <a class="btn proj-btn" href="#">Start a project →</a>
+      </div>
+      <div class="pcard2">
+        <div class="pk">Care plan</div>
+        <div class="pr">$40–100<span style="font-size:14px;color:var(--muted)">/mo</span></div>
+        <div class="tl">Ongoing updates</div>
+        <ul>
+          <li>Edits &amp; content updates</li>
+          <li>Small additions</li>
+          <li>Priority turnaround</li>
+          <li>Or $75–150 per change</li>
+        </ul>
+        <a class="btn proj-btn" href="#">Ask about care →</a>
+      </div>
+    </div>
+    <p class="src-note" style="margin-top:16px">Done-for-you means I handle the build, hosting, and every change. A custom domain (~$12/yr, optional) is billed to you. Projects start with a 50% deposit, balance on launch.</p>
   </section>
 
   <!-- ESTIMATOR -->
@@ -485,7 +557,8 @@ const SERVICES = [
   {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"projects from $500"},
   {ic:"G",t:"Grant research",d:"Vetted, criteria-matched grant shortlists on a monthly cadence, delivered ready to act on.",r:"$35/hr · monthly"},
   {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"scoped per deck"},
-  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"scoped per build"}
+  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"scoped per build"},
+  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites from $400"}
 ];
 
 /* ============================ render ============================ */
@@ -498,12 +571,12 @@ document.getElementById("svc").innerHTML=SERVICES.map(s=>`
   <div class="scard"><div class="ic">${s.ic}</div><h3>${s.t}</h3><p>${s.d}</p><div class="rate">${s.r}</div></div>`).join("");
 
 /* estimator */
-const SVC_OPTS=[["research","Research"],["strategy","Strategy & ops"],["plan","Business plan / model"],["deck","Investor deck"],["grants","Grant research"],["dashboard","Data / dashboard"]];
+const SVC_OPTS=[["research","Research"],["strategy","Strategy & ops"],["plan","Business plan / model"],["deck","Investor deck"],["grants","Grant research"],["dashboard","Data / dashboard"],["web","Website"]];
 document.querySelector('[data-group="service"]').innerHTML=SVC_OPTS.map(o=>`<button class="opt" data-v="${o[0]}">${o[1]}</button>`).join("");
 const pick={service:null,scope:null,rush:null};
-const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3}; // weeks, medium/standard
+const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3,web:1.5}; // weeks, medium/standard
 const SCOPE={small:.6,medium:1,large:1.7};
-const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000]};
+const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000],web:[500,2800]};
 function bucket(w){if(w<1)return"Under 1 week";if(w<2)return"1–2 weeks";if(w<4)return"2–4 weeks";return"4+ weeks";}
 function estimate(){
   if(!pick.service||!pick.scope||!pick.rush){return;}
@@ -579,6 +652,7 @@ document.getElementById("contact-form").href=CONTACT_URL;
 document.getElementById("est-cta").href=CONTACT_URL;
 document.getElementById("contact-brief").href=BRIEF_URL;
 document.querySelectorAll(".res-btn").forEach(a=>a.href=RESOURCES_URL);
+document.querySelectorAll(".proj-btn").forEach(a=>a.href=CONTACT_URL);
 if(SHEET_CSV_URL && window.Papa){
   Papa.parse(SHEET_CSV_URL,{download:true,header:true,skipEmptyLines:true,
     complete:res=>{try{const rows=res.data.map(mapRow).filter(r=>r.role);boot(rows.length?rows:SAMPLE,rows.length>0);}catch(e){boot(SAMPLE,false);}},
