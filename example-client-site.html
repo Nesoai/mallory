@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marigold &amp; Oak — Neighborhood Café &amp; Bakery</title>
+<meta name="description" content="A neighborhood café and bakery — slow mornings, good coffee, fresh bread. A sample site by Boundless Web." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%232F5D50'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20text-anchor='middle'%20fill='%23F4C95D'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#FBF6EC; --ink:#2A241D; --green:#2F5D50; --green-d:#234A40;
+  --terra:#C4633B; --gold:#E7B84B; --muted:#7A7266; --line:#E7DECB; --card:#FFFDF8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"Nunito Sans",system-ui,sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;margin:0;letter-spacing:.2px}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;font-weight:700;font-size:15px;padding:13px 24px;border-radius:999px;text-decoration:none;transition:transform .12s,background .12s}
+.btn:hover{transform:translateY(-2px);background:var(--green-d)}
+.btn.alt{background:var(--terra)}.btn.alt:hover{background:#a8502d}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(251,246,236,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;height:66px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"DM Serif Display",serif;font-size:20px}
+.logo .dot{width:34px;height:34px;border-radius:50%;background:var(--green);color:var(--gold);display:grid;place-items:center;font-size:18px}
+.nav nav{margin-left:auto;display:none;gap:22px}
+@media(min-width:760px){.nav nav{display:flex}}
+.nav nav a{text-decoration:none;font-weight:600;font-size:14px;color:var(--ink)}
+.nav nav a:hover{color:var(--terra)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(120% 90% at 85% 0%, rgba(231,184,75,.20), transparent 55%),
+  radial-gradient(90% 80% at 0% 100%, rgba(47,93,80,.14), transparent 60%),
+  var(--cream)}
+.hero .wrap{padding:80px 24px 70px;display:grid;gap:40px;align-items:center}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.hero .eyebrow{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--terra)}
+.hero h1{font-size:clamp(42px,7vw,74px);line-height:1.02;margin:14px 0 0}
+.hero h1 em{color:var(--green);font-style:italic}
+.hero p{font-size:18px;color:var(--muted);max-width:46ch;margin:18px 0 26px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.disc{aspect-ratio:1;border-radius:28px;background:linear-gradient(160deg,var(--green),var(--green-d));color:#fff;padding:34px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 24px 60px rgba(35,74,64,.28)}
+.disc .big{font-family:"DM Serif Display",serif;font-size:clamp(30px,4vw,42px);line-height:1.05}
+.disc .big em{color:var(--gold);font-style:italic}
+.disc p{color:#E4EFEA;margin:14px 0 0;font-size:15px}
+
+section{padding:70px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 44px}
+.head .eyebrow{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--terra)}
+.head h2{font-size:clamp(30px,4.5vw,44px);margin-top:10px}
+.head p{color:var(--muted);margin-top:12px}
+
+/* menu */
+.menu-grid{display:grid;grid-template-columns:1fr;gap:30px}
+@media(min-width:760px){.menu-grid{grid-template-columns:1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.mcard h3{font-size:26px;color:var(--green);margin-bottom:6px}
+.mcard .cat-note{color:var(--muted);font-size:13px;margin-bottom:16px}
+.item{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:11px 0;border-top:1px dashed var(--line)}
+.item:first-of-type{border-top:none}
+.item .n{font-weight:700}
+.item .d{color:var(--muted);font-size:13.5px;font-weight:400}
+.item .p{font-family:"DM Serif Display",serif;color:var(--terra);font-size:18px;white-space:nowrap}
+
+/* about */
+.about{background:var(--green);color:#fff}
+.about .wrap{display:grid;gap:34px;align-items:center}
+@media(min-width:820px){.about .wrap{grid-template-columns:1fr 1fr}}
+.about h2{font-size:clamp(30px,4.5vw,44px)}
+.about h2 em{color:var(--gold);font-style:italic}
+.about p{color:#E4EFEA;margin-top:16px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px 20px;flex:1;min-width:120px}
+.stat b{font-family:"DM Serif Display",serif;font-size:28px;display:block}
+.stat span{font-size:12.5px;color:#CFE0DA}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:760px){.visit-grid{grid-template-columns:1fr 1fr}}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px}
+.vcard h3{font-size:24px;color:var(--green);margin-bottom:14px}
+.hours{display:flex;justify-content:space-between;padding:8px 0;border-top:1px dashed var(--line)}
+.hours:first-of-type{border-top:none}
+.hours span:last-child{color:var(--terra);font-weight:700}
+.vcard address{font-style:normal;color:var(--muted);line-height:1.9}
+.cta-band{background:var(--terra);color:#fff;text-align:center;border-radius:24px;padding:48px 24px;margin-top:8px}
+.cta-band h2{font-size:clamp(28px,4vw,40px)}
+.cta-band p{color:#FBE7DC;margin:12px 0 24px}
+
+footer{background:var(--green-d);color:#CFE0DA;text-align:center;padding:40px 24px;font-size:14px}
+footer .credit{margin-top:14px;font-size:12.5px;color:#9DBAB0}
+footer a{color:var(--gold);text-decoration:none;font-weight:700}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="wrap">
+  <div class="logo"><span class="dot">M</span> Marigold &amp; Oak</div>
+  <nav><a href="#menu">Menu</a><a href="#about">Our Story</a><a href="#visit">Visit</a><a href="#visit">Hours</a></nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <span class="eyebrow">Neighborhood café &amp; bakery</span>
+    <h1>Slow mornings,<br /><em>good bread.</em></h1>
+    <p>Small-batch coffee, bread baked before sunrise, and a corner table that's always waiting. Come as you are.</p>
+    <div class="cta">
+      <a class="btn" href="#menu">See the menu</a>
+      <a class="btn ghost" href="#visit">Find us →</a>
+    </div>
+  </div>
+  <div class="disc">
+    <div class="big">Fresh out of the <em>oven</em> daily.</div>
+    <p>Sourdough, morning buns, and seasonal galettes — while they last.</p>
+  </div>
+</div></header>
+
+<section id="menu"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">The menu</span>
+    <h2>Made fresh, kept simple</h2>
+    <p>A short menu we do well, changing gently with the seasons.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="mcard">
+      <h3>Coffee &amp; Tea</h3>
+      <div class="cat-note">Beans roasted down the street.</div>
+      <div class="item"><span><span class="n">Drip Coffee</span> <span class="d">— bottomless</span></span><span class="p">$3</span></div>
+      <div class="item"><span><span class="n">Latte / Cappuccino</span></span><span class="p">$4.5</span></div>
+      <div class="item"><span><span class="n">Cortado</span></span><span class="p">$4</span></div>
+      <div class="item"><span><span class="n">Golden Milk / Chai</span></span><span class="p">$5</span></div>
+      <div class="item"><span><span class="n">Loose-Leaf Tea</span></span><span class="p">$3.5</span></div>
+    </div>
+    <div class="mcard">
+      <h3>From the Bakery</h3>
+      <div class="cat-note">Baked before you're awake.</div>
+      <div class="item"><span><span class="n">Sourdough Loaf</span></span><span class="p">$8</span></div>
+      <div class="item"><span><span class="n">Morning Bun</span></span><span class="p">$4.5</span></div>
+      <div class="item"><span><span class="n">Almond Croissant</span></span><span class="p">$5</span></div>
+      <div class="item"><span><span class="n">Seasonal Galette</span></span><span class="p">$6</span></div>
+      <div class="item"><span><span class="n">Cookie of the Day</span></span><span class="p">$3.5</span></div>
+    </div>
+    <div class="mcard">
+      <h3>Toasts &amp; Plates</h3>
+      <div class="cat-note">On our sourdough, always.</div>
+      <div class="item"><span><span class="n">Avocado Toast</span> <span class="d">— chili, lime</span></span><span class="p">$9</span></div>
+      <div class="item"><span><span class="n">Ricotta &amp; Honey Toast</span></span><span class="p">$8</span></div>
+      <div class="item"><span><span class="n">Soft Egg &amp; Greens</span></span><span class="p">$10</span></div>
+      <div class="item"><span><span class="n">Soup &amp; Bread</span> <span class="d">— daily</span></span><span class="p">$9</span></div>
+    </div>
+    <div class="mcard">
+      <h3>Something Sweet</h3>
+      <div class="cat-note">Because you deserve it.</div>
+      <div class="item"><span><span class="n">Slice of Cake</span></span><span class="p">$6</span></div>
+      <div class="item"><span><span class="n">Affogato</span></span><span class="p">$6</span></div>
+      <div class="item"><span><span class="n">Seasonal Tart</span></span><span class="p">$6.5</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+  <div>
+    <h2>A corner of the neighborhood, <em>since 2019.</em></h2>
+    <p>Marigold &amp; Oak started with one oven, a borrowed espresso machine, and a simple idea: a place where neighbors could slow down for a minute. We still bake everything by hand, still know most orders by heart, and still save the corner table for whoever needs it most.</p>
+    <div class="stats">
+      <div class="stat"><b>6am</b><span>Bread out of the oven</span></div>
+      <div class="stat"><b>100%</b><span>Baked in-house</span></div>
+      <div class="stat"><b>1</b><span>Very good corner table</span></div>
+    </div>
+  </div>
+  <div class="disc" style="background:linear-gradient(160deg,#3a7264,#2f5d50)">
+    <div class="big">"The kind of place you<br /><em>linger.</em>"</div>
+    <p>— every regular, probably</p>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Come by</span>
+    <h2>Visit us</h2>
+    <p>We're on the corner with the green awning. You can't miss it.</p>
+  </div>
+  <div class="visit-grid">
+    <div class="vcard">
+      <h3>Hours</h3>
+      <div class="hours"><span>Monday – Friday</span><span>7am – 4pm</span></div>
+      <div class="hours"><span>Saturday</span><span>8am – 5pm</span></div>
+      <div class="hours"><span>Sunday</span><span>8am – 2pm</span></div>
+      <div class="hours"><span>Holidays</span><span>See socials</span></div>
+    </div>
+    <div class="vcard">
+      <h3>Find us</h3>
+      <address>
+        128 Oak Street<br />
+        Riverbend, TN 38000<br /><br />
+        Call: (555) 014-2287<br />
+        hello@marigoldandoak.example
+      </address>
+    </div>
+  </div>
+  <div class="cta-band">
+    <h2>Save your seat for the weekend</h2>
+    <p>Pre-order a loaf or a box of pastries for pickup — before they're gone.</p>
+    <a class="btn" style="background:#fff;color:var(--terra)" href="#">Pre-order for pickup →</a>
+  </div>
+</div></section>
+
+<footer>
+  <div class="logo" style="justify-content:center;color:#fff"><span class="dot">M</span> Marigold &amp; Oak</div>
+  <p style="margin-top:12px">128 Oak Street, Riverbend · Open daily · @marigoldandoak</p>
+  <div class="credit">This is a sample site. Design &amp; build by <a href="https://nesoai.github.io/mallory/">Boundless Web — Mallory Bailey-Finkley</a>.</div>
+</footer>
+
+</body>
+</html>
