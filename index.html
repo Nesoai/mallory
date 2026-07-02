@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mallory Bailey-Finkley — Boundless</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%235B2A86'/><text x='32' y='45' font-family='Georgia,serif' font-size='30' font-weight='700' text-anchor='middle' fill='white'>MB</text></svg>" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%235B2A86'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-size='30'%20font-weight='700'%20text-anchor='middle'%20fill='white'%3EMB%3C/text%3E%3C/svg%3E" />
 <meta name="description" content="Market research, strategy & operations. Discovering boundless potential — at the next level." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -171,6 +171,11 @@ details.qa summary::-webkit-details-marker{display:none}
 details.qa summary::after{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--plum);font-size:20px;flex:none}
 details.qa[open] summary::after{content:"\2013"}
 details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
+.tgrid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.tgrid{grid-template-columns:1fr 1fr}}
+.tcard{margin:0;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--plum);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+.tcard blockquote{margin:0;font-family:"Fraunces",serif;font-size:18px;line-height:1.4;color:var(--ink)}
+.tcard figcaption{margin-top:14px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--plum)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
@@ -302,6 +307,21 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section id="praise">
+    <div class="sec-head"><span class="eyebrow">In their words</span><h2>What clients say</h2></div>
+    <div class="tgrid">
+      <figure class="tcard">
+        <blockquote>&ldquo;Combines creativity with data-driven solutions, with every step aligned to business goals.&rdquo;</blockquote>
+        <figcaption>Noor Yaghoubi · Database To Dashboard</figcaption>
+      </figure>
+      <figure class="tcard">
+        <blockquote>&ldquo;Precision, professionalism, and creative thinking, with a holistic view of business and marketing.&rdquo;</blockquote>
+        <figcaption>LaToya Germaine · Germane Learning</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- APPROACH / MANIFESTO -->
   <section id="approach">
     <div class="manifesto">
@@ -316,6 +336,34 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
   <section id="insights">
     <div class="sec-head"><span class="eyebrow">05 · Insights</span><h2>Free reads &amp; premium intelligence</h2></div>
     <p class="lead">Curated opportunities and signal on revenue, community, and environmental impact — with a deeper paid tier for those who want the full picture and projections.</p>
+    <h3 style="font-family:'Fraunces',serif;font-size:19px;margin:0 0 4px">Free downloads</h3>
+    <p class="src-note" style="margin:0 0 18px">Grab any of these free — just tell me where to send them. Each opens a quick form.</p>
+    <div class="svc" style="margin-bottom:34px">
+      <div class="scard">
+        <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
+        <h3>The 4-Part Filter for Clearer Decisions</h3>
+        <p>A 60-second framework for deciding from well-rounded information, not noise.</p>
+        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
+      </div>
+      <div class="scard">
+        <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
+        <h3>Grant Readiness Checklist</h3>
+        <p>Ten checks to run before you spend hours on any grant application.</p>
+        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
+      </div>
+      <div class="scard">
+        <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
+        <h3>What Makes a Proposal Win</h3>
+        <p>Seven principles behind proposals that actually get chosen.</p>
+        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
+      </div>
+      <div class="scard">
+        <div class="eyebrow" style="margin-bottom:8px">Free PDF</div>
+        <h3>The One-Page Business Plan Starter</h3>
+        <p>Your whole plan on one page — a fill-in template to get clear fast.</p>
+        <a class="btn res-btn" href="#" style="margin-top:4px">Get it free →</a>
+      </div>
+    </div>
     <div class="tiers">
       <div class="tier free">
         <span class="badge">Free</span>
@@ -415,6 +463,7 @@ const SHEET_CSV_URL = "";
 /* contact links — replace "#" with a form (Tally/Google Form) or mailto */
 const CONTACT_URL = "https://forms.gle/GpTgXfXHmYRsAxaE7";   // Start-a-project intake form
 const BRIEF_URL   = "mailto:boundless.mbf@gmail.com?subject=Join%20the%20Boundless%20Brief";  // interim until Substack launches
+const RESOURCES_URL = "#";   // gated "Boundless Free Resources" form — paste its link here
 
 /* ---- fallback sample data (used until the Sheet is connected) ---- */
 const SAMPLE = [
@@ -529,6 +578,7 @@ document.getElementById("foot-date").textContent=new Date().toLocaleDateString("
 document.getElementById("contact-form").href=CONTACT_URL;
 document.getElementById("est-cta").href=CONTACT_URL;
 document.getElementById("contact-brief").href=BRIEF_URL;
+document.querySelectorAll(".res-btn").forEach(a=>a.href=RESOURCES_URL);
 if(SHEET_CSV_URL && window.Papa){
   Papa.parse(SHEET_CSV_URL,{download:true,header:true,skipEmptyLines:true,
     complete:res=>{try{const rows=res.data.map(mapRow).filter(r=>r.role);boot(rows.length?rows:SAMPLE,rows.length>0);}catch(e){boot(SAMPLE,false);}},
