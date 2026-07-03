@@ -70,6 +70,8 @@ section{padding:56px 0;position:relative}
 .scard h3{font-size:18px;font-family:"Fraunces",serif}
 .scard p{color:var(--muted);font-size:13.5px;margin:8px 0 14px}
 .scard .rate{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--plum-deep);font-weight:600;border-top:1px solid var(--line);padding-top:12px}
+.scard .ex-link{display:inline-block;margin-top:10px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--plum);text-decoration:none;font-weight:600}
+.scard .ex-link:hover{text-decoration:underline}
 
 /* estimator */
 .estimator{background:linear-gradient(160deg,#fff,#fbf9fe);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr;gap:28px}
@@ -197,7 +199,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 <body>
 
 <div class="topbar"><div class="wrap">
-  <div class="mark">MBF</div>
+  <div class="mark" style="background:none;box-shadow:none;width:auto;height:auto"><svg width='38' height='38' viewBox='0 0 40 40' style='filter:drop-shadow(0 4px 10px rgba(61,26,92,.25))' aria-label='Boundless — Mallory Bailey-Finkley'><rect width='40' height='40' rx='12' fill='#5B2A86'/><path d='M11 14 L20 8.5 L29 14' fill='none' stroke='#E7B84B' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/><text x='20' y='30' font-family='Georgia, serif' font-size='14' font-weight='700' fill='#ffffff' text-anchor='middle'>MBF</text></svg></div>
   <div><div class="brand-name">Mallory Bailey-Finkley</div><div class="brand-sub">Boundless · Strategy &amp; Operations</div></div>
   <nav>
     <a href="#services">Services</a><a href="#estimate">Estimate</a><a href="#web">Web</a><a href="#portfolio">Work</a><a href="#pipeline">Pipeline</a>
@@ -219,6 +221,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     <span class="tag">Business plans &amp; financial models</span>
     <span class="tag">Grant research</span>
     <span class="tag">Data &amp; dashboards</span>
+    <span class="tag">Web design</span>
   </div>
 </div></header>
 
@@ -302,7 +305,8 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
           <button class="opt" data-v="small">Small / focused</button>
           <button class="opt" data-v="medium">Medium</button>
           <button class="opt" data-v="large">Large / comprehensive</button>
-        </div></div>
+        </div>
+        <p class="src-note" style="margin:8px 0 0;font-size:11.5px;line-height:1.5">Small = one focused deliverable (e.g., a single report, a one-page site). Medium = a multi-part project. Large = a comprehensive, multi-workstream engagement.</p></div>
         <div class="est-q"><label>Timeline</label><div class="opts" data-group="rush">
           <button class="opt" data-v="standard">Standard</button>
           <button class="opt" data-v="rush">Rush</button>
@@ -347,7 +351,6 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       <div class="panel"><h3>Submissions by day</h3><div class="cap">activity cadence</div><div class="canvas-box"><canvas id="cTime"></canvas></div></div>
       <div class="panel"><h3>Leads by source</h3><div class="cap">where opportunities come from</div><div class="canvas-box"><canvas id="cSrc"></canvas></div></div>
     </div>
-    <p class="src-note" id="data-src">Data source: sample (connect a Google Sheet to go live). Client identities are generalized for public sharing.</p>
   </section>
 
   <!-- PORTFOLIO -->
@@ -364,8 +367,8 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Brand &amp; go-to-market</div>
         <h3>&ldquo;Experience Tunica County&rdquo;</h3>
-        <p>Rebranded a county's tourism identity for its Chamber of Commerce — name, positioning, and go-to-market.</p>
-        <div class="rate">Result: county-wide tourism rebrand launched</div>
+        <p>Rebranded a county's tourism identity for its Chamber of Commerce — new name, logo, positioning, website, and go-to-market.</p>
+        <div class="rate">Result: new brand, logo &amp; site launched · project opportunities up · county has since drawn billions in new investment</div>
       </div>
       <div class="scard">
         <div class="eyebrow" style="margin-bottom:8px">Investor decks</div>
@@ -445,7 +448,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
       <details class="qa"><summary>How do revisions work?</summary><p>Revisions are built into every project, so we get the result right — not just done.</p></details>
       <details class="qa"><summary>How does payment work?</summary><p>Milestone-based for larger projects and fixed fees for well-defined ones (for example, $40 per one-page proposal).</p></details>
       <details class="qa"><summary>Do you work remotely and worldwide?</summary><p>Yes — I work fully remote with clients anywhere.</p></details>
-      <details class="qa"><summary>Do you use AI?</summary><p>Yes, as a tool — paired with real human judgment. AI to move quickly across information; a person to think, question, and decide. Never one without the other.</p></details>
+      <details class="qa"><summary>Do you use AI?</summary><p>Yes, as a tool — paired with real human judgment. AI to move quickly across information; a person to think, question, and decide.</p></details>
       <details class="qa"><summary>How do we start?</summary><p>Send your project through the intake form and you'll get an exact timeline and quote. That's it.</p></details>
     </div>
   </section>
@@ -529,13 +532,14 @@ const SAMPLE = [
 
 /* ---- services ---- */
 const SERVICES = [
-  {ic:"R",t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"$600–2,500 / project"},
-  {ic:"S",t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"$1,500–6,000 / 28 days"},
-  {ic:"F",t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"$500–4,000 / project"},
-  {ic:"G",t:"Grant &amp; funding research",d:"Criteria-matched funder shortlists and RFP/opportunity research for nonprofits and small orgs — vetted, sourced, and delivered on a monthly cadence.",r:"$300–1,200 / 28 days"},
-  {ic:"P",t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"$600–3,000 / deck"},
-  {ic:"D",t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"$800–5,000 / build"},
-  {ic:"W",t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites $350–2,200"}
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='10.5' cy='10.5' r='6.5'/><line x1='21' y1='21' x2='15.4' y2='15.4'/><line x1='8' y1='11.5' x2='8' y2='9.5'/><line x1='10.5' y1='11.5' x2='10.5' y2='8'/><line x1='13' y1='11.5' x2='13' y2='10.5'/></svg>`,t:"Market & competitive research",d:"Market sizing, competitor scans, customer insight — turned into a clear read on where to play and win.",r:"$600–2,500 / project"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='8'/><circle cx='12' cy='12' r='3.5'/><circle cx='12' cy='12' r='0.6'/></svg>`,t:"Strategy & operations",d:"Growth strategy, process and org design, fractional-COO support that turns plans into systems that scale.",r:"$1,500–6,000 / 28 days"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3h8l4 4v14H6z'/><path d='M14 3v4h4'/><path d='M8.5 16l2-2 1.5 1.5 3-3'/></svg>`,t:"Business plans & financial models",d:"Investor- and lender-ready plans, models, and SBA reviews with a written recommendations memo.",r:"$500–4,000 / project"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6 3h9l3 3v15H6z'/><path d='M15 3v3h3'/><path d='M9 13l1.6 1.6L14 11'/></svg>`,t:"Proposals & quotes",d:"Done-for-you bid proposals and quotes for contractors and small businesses bidding on municipal and commercial work.",r:"from $40 / proposal"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 5h16l-6 7v6l-4 2v-8z'/></svg>`,t:"Grant &amp; funding research",d:"Criteria-matched funder shortlists and RFP/opportunity research for nonprofits and small orgs — vetted, sourced, and delivered on a 4-week cadence.",r:"$300–1,200 / 28 days",ex:"grant-shortlist-sample.pdf"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='12' rx='1'/><line x1='12' y1='16' x2='12' y2='20'/><line x1='9' y1='20' x2='15' y2='20'/><path d='M8 12l3-3 2 2 3-4'/></svg>`,t:"Investor decks & fundraising",d:"Pitch decks and fundraising materials built to move a venture to its next stage.",r:"$600–3,000 / deck",ex:"investor-deck-sample.pdf"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><line x1='4' y1='20' x2='20' y2='20'/><line x1='4' y1='20' x2='4' y2='5'/><rect x='7' y='12' width='2.4' height='5'/><rect x='11.5' y='9' width='2.4' height='8'/><rect x='16' y='6' width='2.4' height='11'/></svg>`,t:"Data & dashboards",d:"Live dashboards (like this one) that make performance and pipeline visible and decision-ready.",r:"$800–5,000 / build"},
+  {svg:`<svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='14' rx='1.5'/><line x1='3' y1='8.5' x2='21' y2='8.5'/><circle cx='5.7' cy='6.2' r='0.4'/><line x1='9' y1='21' x2='15' y2='21'/><line x1='12' y1='18' x2='12' y2='21'/></svg>`,t:"Web design — Boundless Web",d:"Fast, beautiful one-page sites, landing pages, event/menu pages, and interactive one-pagers. Done-for-you: I design, build, host, and maintain it.",r:"sites $350–2,200",ex:"sample.html"}
 ];
 
 /* ============================ render ============================ */
@@ -545,15 +549,15 @@ const bid=p=>p.rateType==="fixed"?money(p.fixed)+" fixed":(p.cat||"Proposal");
 
 /* services */
 document.getElementById("svc").innerHTML=SERVICES.map(s=>`
-  <div class="scard"><div class="ic">${s.ic}</div><h3>${s.t}</h3><p>${s.d}</p><div class="rate">${s.r}</div></div>`).join("");
+  <div class="scard"><div class="ic">${s.svg}</div><h3>${s.t}</h3><p>${s.d}</p><div class="rate">${s.r}</div>${s.ex?`<a class="ex-link" href="${s.ex}">See an example →</a>`:""}</div>`).join("");
 
 /* estimator */
-const SVC_OPTS=[["research","Research"],["strategy","Strategy & ops"],["plan","Business plan / model"],["deck","Investor deck"],["grants","Grant research"],["dashboard","Data / dashboard"],["web","Website"]];
+const SVC_OPTS=[["research","Research"],["strategy","Strategy & ops"],["plan","Business plan / model"],["deck","Investor deck"],["grants","Grant research"],["dashboard","Data / dashboard"],["web","Website"],["proposals","Proposal / quote"]];
 document.querySelector('[data-group="service"]').innerHTML=SVC_OPTS.map(o=>`<button class="opt" data-v="${o[0]}">${o[1]}</button>`).join("");
 const pick={service:null,scope:null,rush:null};
-const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3,web:1.5}; // weeks, medium/standard
+const BASE={research:2,strategy:3,plan:3.5,deck:2,grants:1.5,dashboard:3,web:1.5,proposals:0.5}; // weeks, medium/standard
 const SCOPE={small:.6,medium:1,large:1.7};
-const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000],web:[350,2200]};
+const PRICE={research:[600,2500],strategy:[1500,6000],plan:[500,4000],deck:[600,3000],grants:[300,1200],dashboard:[800,5000],web:[350,2200],proposals:[40,400]};
 function bucket(w){if(w<1)return"Under 1 week";if(w<2)return"1–2 weeks";if(w<4)return"2–4 weeks";return"4+ weeks";}
 function estimate(){
   if(!pick.service||!pick.scope||!pick.rush){return;}
@@ -622,7 +626,6 @@ function mapRow(r){
 }
 function boot(data,live){
   renderDash(data);
-  document.getElementById("data-src").textContent="Data source: "+(live?"live Google Sheet":"sample (connect a Google Sheet to go live)")+". Client identities are generalized for public sharing.";
 }
 document.getElementById("foot-date").textContent=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
 document.getElementById("contact-form").href=CONTACT_URL;
