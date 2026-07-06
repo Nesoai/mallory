@@ -568,7 +568,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 </div>
 
 <footer><div class="wrap">
-  Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span> · v2.2<br />
+  Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span> · v2.3<br />
   Discovering boundless potential, at the next level.
 </div></footer>
 
@@ -586,6 +586,7 @@ const SHEET_CSV_URL = "";
 const CONTACT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeQeG0kgYk2LuVWYUHswlcy9TbZS5KeQg_bNDTB7HUkELecww/viewform";   // Start-a-project intake form
 const CARE_URL    = "mailto:boundless.mbf@gmail.com?subject=Boundless%20Web%20care%20plan";  // care-plan questions
 const RESOURCES_URL = "https://forms.gle/Wgf8SxTs1JNmgPtN7";   // Boundless Free Resources form
+const FREE_OFFER_URL = "";   // ← paste the "Free First Deliverable" form link here (falls back to RESOURCES_URL until then)
 
 /* ---- fallback sample data (used until the Sheet is connected) ---- */
 const SAMPLE = [
@@ -701,7 +702,7 @@ function boot(data,live){
 document.getElementById("foot-date").textContent=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
 document.getElementById("contact-form").href=CONTACT_URL;
 document.getElementById("est-cta").href=CONTACT_URL;
-var fcta=document.getElementById("free-cta");if(fcta)fcta.href=RESOURCES_URL;
+var fcta=document.getElementById("free-cta");if(fcta)fcta.href=FREE_OFFER_URL||RESOURCES_URL;
 document.querySelectorAll(".care-btn").forEach(a=>a.href=CARE_URL);
 document.querySelectorAll(".res-btn").forEach(a=>a.href=RESOURCES_URL);
 document.querySelectorAll(".proj-btn").forEach(a=>a.href=CONTACT_URL);
