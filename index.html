@@ -32,6 +32,20 @@ a{color:inherit}
 .btn.ghost{background:transparent;color:var(--plum);border:1.5px solid var(--plum)}
 .btn.light{background:#fff;color:var(--plum-deep)}
 
+/* free banner */
+.freebar{background:linear-gradient(92deg,var(--plum-deep),var(--plum) 60%,#7a4aa8);color:#fff;border-radius:18px;padding:18px 22px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;box-shadow:0 14px 34px rgba(61,26,92,.24);margin-top:34px}
+.freebar .fb-ic{font-size:30px;flex:none}
+.freebar p{margin:0;font-size:14.5px;color:#efe7f6;max-width:62ch}
+.freebar p b{color:#e9c98f}
+.freebar .btn{margin-left:auto;flex:none}
+/* sectors + map */
+.sectors{display:flex;flex-wrap:wrap;gap:9px}
+.mapcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr;gap:22px;align-items:center;margin-top:26px}
+@media(min-width:760px){.mapcard{grid-template-columns:280px 1fr}}
+.mapcard h3{font-size:21px;font-family:"Fraunces",serif}
+.mapcard p{color:var(--muted);font-size:13.5px;margin:8px 0 12px}
+.placechips{display:flex;flex-wrap:wrap;gap:8px}
+.placechips .tag{font-size:10.5px}
 /* scroll-reveal */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
@@ -253,6 +267,11 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     <div class="ci"><div class="cv">2 <b>of</b> 2</div><div class="cl">Investor decks advanced to next stage</div></div>
     <div class="ci"><div class="cv">Billions</div><div class="cl">Drawn to Tunica County since rebrand</div></div>
   </div>
+  <div class="freebar" id="free">
+    <span class="fb-ic">🎁</span>
+    <p><b>Every service starts with a free first deliverable</b> — a one-page competitor snapshot, a homepage concept mock, a 5-funder mini-shortlist, or your first bid proposal written free. It's yours to keep either way, so you can test working with me before spending a dollar.</p>
+    <a class="btn light" href="#" id="free-cta">Claim yours →</a>
+  </div>
 </div></header>
 
 <div class="wrap">
@@ -262,6 +281,40 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
     <div class="sec-head"><span class="eyebrow">01 · What I do</span><h2>Services &amp; indicative rates</h2></div>
     <div class="svc" id="svc"></div>
     <p class="src-note">Rates are indicative starting points; every project is scoped to its goals. Use the estimator below for a rough timeframe on yours.</p>
+
+    <div class="sec-head" style="margin-top:52px"><span class="eyebrow">Who I work with</span><h2>Sectors served</h2></div>
+    <div class="sectors">
+      <span class="tag">Construction &amp; contractors</span><span class="tag">Real estate &amp; development</span>
+      <span class="tag">Retail &amp; boutiques</span><span class="tag">Restaurants &amp; hospitality</span>
+      <span class="tag">Nonprofits &amp; ministries</span><span class="tag">Municipal &amp; economic development</span>
+      <span class="tag">Consultants &amp; professional services</span><span class="tag">Automotive</span>
+      <span class="tag">Agriculture</span><span class="tag">Financial services</span>
+      <span class="tag">Manufacturing &amp; logistics</span><span class="tag">Tech &amp; startups</span>
+    </div>
+
+    <div class="mapcard rv">
+      <svg viewBox="0 0 280 190" style="width:100%;max-width:280px" aria-label="Mid-South map: Tennessee, Mississippi, Alabama">
+        <rect x="8" y="14" width="264" height="56" rx="8" fill="#EFE7F6" stroke="#E7E1F0"/>
+        <text x="140" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="#5B2A86" font-weight="600">TENNESSEE</text>
+        <rect x="8" y="78" width="126" height="98" rx="8" fill="#F6F1FB" stroke="#E7E1F0"/>
+        <text x="71" y="130" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6E6683">MISSISSIPPI</text>
+        <rect x="146" y="78" width="126" height="98" rx="8" fill="#F6F1FB" stroke="#E7E1F0"/>
+        <text x="209" y="130" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#6E6683">ALABAMA</text>
+        <path d="M30 14 Q 44 60 30 110 Q 22 145 34 176" fill="none" stroke="#B9D6EA" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="38" cy="62" r="6" fill="#C79A3A"/><text x="50" y="66" font-family="IBM Plex Mono,monospace" font-size="10" fill="#3D1A5C" font-weight="600">Memphis</text>
+        <circle cx="44" cy="92" r="6" fill="#5B2A86"/><text x="56" y="96" font-family="IBM Plex Mono,monospace" font-size="10" fill="#3D1A5C" font-weight="600">Tunica</text>
+      </svg>
+      <div>
+        <span class="eyebrow">Where the work happens</span>
+        <h3>Mid-South roots. Worldwide reach.</h3>
+        <p>Boundless is rooted in the Memphis–Tunica corridor — county planning, chamber-of-commerce rebrands, contractor bids — and works fully remote with clients and active proposals across the U.S. and abroad:</p>
+        <div class="placechips">
+          <span class="tag">Memphis metro</span><span class="tag">Tunica County, MS</span><span class="tag">Los Angeles</span>
+          <span class="tag">San Diego</span><span class="tag">Winston-Salem</span><span class="tag">Montreal, Canada</span>
+          <span class="tag">Walsall, UK</span><span class="tag">Melbourne, Australia</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- WEB DESIGN -->
@@ -515,7 +568,7 @@ details.qa p{margin:0 0 16px;color:var(--muted);font-size:14px;line-height:1.6}
 </div>
 
 <footer><div class="wrap">
-  Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span> · v2.1<br />
+  Mallory Bailey-Finkley · Boundless — Strategy &amp; Operations · updated <span id="foot-date"></span> · v2.2<br />
   Discovering boundless potential, at the next level.
 </div></footer>
 
@@ -648,6 +701,7 @@ function boot(data,live){
 document.getElementById("foot-date").textContent=new Date().toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"});
 document.getElementById("contact-form").href=CONTACT_URL;
 document.getElementById("est-cta").href=CONTACT_URL;
+var fcta=document.getElementById("free-cta");if(fcta)fcta.href=RESOURCES_URL;
 document.querySelectorAll(".care-btn").forEach(a=>a.href=CARE_URL);
 document.querySelectorAll(".res-btn").forEach(a=>a.href=RESOURCES_URL);
 document.querySelectorAll(".proj-btn").forEach(a=>a.href=CONTACT_URL);
