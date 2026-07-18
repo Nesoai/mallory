@@ -322,7 +322,7 @@ if(GA_ID){const s=document.createElement('script');s.async=true;s.src='https://w
       <div>
         <span class="eyebrow">Where the work happens</span>
         <h3>Mid-South roots. Worldwide reach.</h3>
-        <p>Boundless is rooted in the Memphis–Tunica corridor — county planning, chamber-of-commerce rebrands, contractor bids — and works fully remote with clients and active proposals across the U.S. and abroad:</p>
+        <p>Boundless is rooted in the Memphis–Tunica corridor — county planning, chamber-of-commerce rebrands, contractor bids — and works fully remote with clients and projects across the U.S. and abroad:</p>
         <div class="placechips">
           <span class="tag">Memphis metro</span><span class="tag">Tunica County, MS</span><span class="tag">Los Angeles</span>
           <span class="tag">San Diego</span><span class="tag">Winston-Salem</span><span class="tag">Montreal, Canada</span>
@@ -409,6 +409,13 @@ if(GA_ID){const s=document.createElement('script');s.async=true;s.src='https://w
       <a class="tcard re feat2" href="https://nesoai.github.io/siteshaper/"><span class="tcat">Real estate</span><b>SiteShaper</b><span class="tdesc">Site plan, floor plates, MEP &amp; a 6-layer site-intelligence screen.</span><span class="tprice">from $199</span></a>
     </div>
     <p style="margin-top:22px;text-align:center"><a class="btn" href="https://nesoai.github.io/neso/">See them inside NESO →</a></p>
+
+    <div class="sec-head" style="margin-top:52px"><span class="eyebrow">Prototype lab</span><h2>Early builds — honest feedback wanted</h2></div>
+    <p class="lead">Alongside the polished suite, the <a href="https://nesoai.github.io/learning-studio/">Boundless Learning Studio</a> holds first-phase prototypes — Little Lights, Lumen, and friends. They're free to use, and I mean it about the feedback: these are working drafts on their way to becoming original, refined products, and real users telling me what's confusing, delightful, or broken is exactly what gets them there. (One permanent exception: the children's learning games stay free forever — those will never be monetized.)</p>
+    <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:-6px">
+      <a class="btn ghost" href="https://nesoai.github.io/learning-studio/">Try the prototypes →</a>
+      <a class="btn ghost" href="mailto:nesoai.us@gmail.com?subject=Prototype%20feedback%20%2F%20tester&body=Which%20app%20did%20you%20try%2C%20and%20what%20did%20you%20think%3F%20(Blunt%20is%20good.)%20If%20you%27d%20like%20to%20be%20a%20regular%20tester%2C%20say%20so!">Send feedback / become a tester →</a>
+    </p>
   </section>
 
     <div class="sec-head"><span class="eyebrow">02 · Interactive</span><h2>Estimate your project</h2></div>
@@ -705,7 +712,7 @@ function renderDash(P){
       ${it.map(p=>`<div class="pcard" style="border-left-color:${c[2]}"><div class="role">${p.role}</div>
         <div class="meta"><span class="rate">${bid(p)}</span><span>${p.status==="Drafted"?"draft":p.status==="Paused"?"paused":dshort(p.date)}</span></div></div>`).join("")||`<div class="meta">—</div>`}
     </div>`;}).join("");
-  document.getElementById("src-stamp").textContent=sub.length+" active proposals";
+  document.getElementById("src-stamp").textContent=sub.length+" projects in motion";
 
   if(typeof Chart!=="undefined"){
     Chart.defaults.font.family="'IBM Plex Mono', monospace";Chart.defaults.font.size=11;Chart.defaults.color="#6E6683";
